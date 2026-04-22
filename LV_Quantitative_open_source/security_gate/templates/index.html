@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supply Chain Guard Pro - Quét Mã</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root { --brand-primary: #4f46e5; --bg-body: #f8fafc; --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05); }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-body); color: #334155; }
+        .saas-card { background: #fff; border-radius: 1rem; border: 1px solid #e2e8f0; box-shadow: var(--card-shadow); }
+        .drop-zone { border: 2px dashed #cbd5e1; border-radius: 1rem; padding: 4rem 2rem; text-align: center; cursor: pointer; transition: all 0.3s ease; background: #f8fafc; }
+        .drop-zone:hover { background-color: #f1f5f9; border-color: var(--brand-primary); }
+        .drop-zone i { font-size: 3.5rem; color: #94a3b8; transition: color 0.3s; }
+        .drop-zone:hover i { color: var(--brand-primary); transform: translateY(-5px); }
+        .score-box { background: #fff; border: 1px solid #e2e8f0; border-radius: 0.75rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.2s; }
+        .score-box:hover { transform: translateY(-3px); box-shadow: var(--card-shadow); }
+        .score-box.main-score { background: linear-gradient(135deg, #4f46e5 0%, #3b82f6 100%); color: white; border: none; }
+        .toast-container { position: fixed; bottom: 20px; right: 20px; z-index: 1055; }
+        .stepper-wrapper { display: flex; justify-content: space-between; position: relative; width: 100%; margin: 2rem 0; }
+        .stepper-item { position: relative; display: flex; flex-direction: column; align-items: center; flex: 1; transition: all 0.3s; z-index: 1; }
+        .stepper-item::before { content: ""; position: absolute; top: 20px; left: -50%; width: 100%; height: 4px; background-color: #e2e8f0; z-index: -1; }
+        .stepper-item:first-child::before { display: none; }
+        .step-counter { position: relative; width: 44px; height: 44px; border-radius: 50%; background-color: #f8fafc; border: 3px solid #cbd5e1; display: flex; justify-content: center; align-items: center; font-weight: bold; color: #94a3b8; box-shadow: 0 0 0 4px #fff; transition: all 0.3s ease; }
+        .step-name { margin-top: 12px; font-size: 0.85rem; font-weight: 600; color: #64748b; text-align: center; max-width: 120px; line-height: 1.3;}
+        .stepper-item.active .step-counter { border-color: var(--brand-primary); background-color: #fff; color: var(--brand-primary); box-shadow: 0 0 0 5px rgba(79, 70, 229, 0.15); }
+        .stepper-item.completed .step-counter { background-color: #10b981; border-color: #10b981; color: white; }
+        .stepper-item.completed::before { background-color: #10b981; }
+        .navbar-nav .nav-link.active { border-bottom: 2px solid white; padding-bottom: 6px; }
+        .progress-bar { transition: width 1.5s cubic-bezier(0.22, 1, 0.36, 1) !important;}
+        /* Tối ưu hiệu ứng trượt cho Progress Bar */
+        #main-progress-bar {
+            transition: width 0.8s cubic-bezier(0.22, 1, 0.36, 1) !important;
+        }
+
+        /* Tạo hiệu ứng sọc sọc chạy liên tục (Zebra stripes animation) */
+        .progress-bar-animated {
+            animation: progress-bar-stripes 1s linear infinite;
+            background-size: 1rem 1rem;
+            background-image: linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+        }
+    </style>
+</head>
+<body data-logged-in="{% if user %}true{% else %}false{% endif %}" data-project-id="{% if project %}{{ project.id }}{% else %}null{% endif %}">
+    
+    {% include '_nav.html' %}
+
+    <main class="container-lg mt-4 mb-5" style="max-width: 1000px;">
+        <nav aria-label="breadcrumb" class="mb-4">
+            <ol class="breadcrumb small fw-medium">
+                <li class="breadcrumb-item"><a href="/management" class="text-decoration-none text-muted">Workspace</a></li>
+                {% if project %}
+                <li class="breadcrumb-item text-primary fw-bold" aria-current="page">{{ project.name }}</li>
+                {% else %}
+                <li class="breadcrumb-item text-muted" aria-current="page">Chưa chọn dự án</li>
+                {% endif %}
+            </ol>
+        </nav>
+
+        <div class="saas-card mb-4">
+            <div class="card-body p-4 p-md-5">
+                <div class="d-flex justify-content-between align-items-center mb-4 pb-3 border-bottom">
+                    <div>
+                        <h2 class="h4 fw-bold text-dark mb-1">Định Lượng Chuỗi Cung Ứng</h2>
+                    </div>
+                    <i class="fa-solid fa-microchip fs-2 text-primary opacity-25"></i>
+                </div>
+                
+                <div id="drop-zone" class="drop-zone">
+                    <i class="fa-solid fa-cloud-arrow-up mb-3"></i>
+                    <h5 class="fw-bold text-dark mb-2">Tải Mã nguồn lên hệ thống</h5>
+                    <p class="text-muted small mb-0">Hỗ trợ tải lên nhiều file cùng lúc. Định dạng: <strong>.zip, .jar, .whl, .tar.gz, .rar</strong></p>
+                    <input type="file" id="file-upload" class="d-none" accept=".zip,.jar,.whl,.tar.gz,.tgz,.tar,.rar" multiple>
+                </div>
+
+                <div id="loading" class="d-none mt-5 mb-4">
+                    <div class="text-center mb-5">
+                        <h5 id="loading-text" class="fw-bold text-dark">Hệ thống đang tiến hành phân tích sâu...</h5>
+                        <p class="text-muted small">Quá trình này có thể mất vài phút tùy dung lượng và số lượng file.</p>
+                    </div>
+                    
+                    <div class="progress-container mx-auto" style="max-width: 600px;">
+                        <div class="progress" style="height: 12px; border-radius: 20px; background-color: #e2e8f0; overflow: visible;">
+                            <div id="main-progress-bar" 
+                                class="progress-bar progress-bar-striped progress-bar-animated" 
+                                role="progressbar" 
+                                style="width: 0%; border-radius: 20px; background: linear-gradient(90deg, #4f46e5, #3b82f6); transition: width 0.5s ease-in-out;">
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between mt-2 px-1">
+                            <span id="progress-percentage" class="small fw-bold text-primary">0%</span>
+                            <span id="progress-step-label" class="small text-muted fw-medium">Đang chuẩn bị...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="results-container"></div>
+
+        <template id="result-card-template">
+            <div class="saas-card mb-5 overflow-hidden result-card-instance shadow-sm" style="border-color: var(--brand-primary);">
+                <div class="bg-light p-4 border-bottom d-flex justify-content-between align-items-center">
+                    <div>
+                        <h3 class="h5 fw-bold text-dark mb-1"><i class="fa-solid fa-file-code me-2 text-primary"></i> <span class="res-filename"></span></h3>
+                        <p class="small text-muted font-monospace mb-0">SHA256: <span class="res-hash"></span></p>
+                    </div>
+                    <div class="res-badge"></div>
+                </div>
+                <div class="card-body p-4 p-md-5">
+                    <div class="row align-items-center">
+                        <div class="col-md-6 mb-4 mb-md-0 pe-md-4">
+                            <h5 class="fw-bold mb-4 text-dark">Chi tiết Rủi ro (Risk Breakdown)</h5>
+                            <div class="row row-cols-2 g-3">
+                                <div class="col-12"><div class="score-box main-score p-4 text-center d-flex justify-content-between align-items-center"><div class="text-start"><div class="small text-white-50 fw-bold">Điểm Tổng thể (R)</div></div><div class="display-5 fw-bold res-r"></div></div></div>
+                                <div class="col"><div class="score-box p-3"><div class="small text-muted fw-bold mb-2"><i class="fa-solid fa-bug text-danger me-1"></i> Lỗ hổng (CV)</div><div class="fs-3 fw-bold res-cv"></div></div></div>
+                                <div class="col"><div class="score-box p-3"><div class="small text-muted fw-bold mb-2"><i class="fa-solid fa-heart-pulse text-success me-1"></i> Bảo trì (CM)</div><div class="fs-3 fw-bold res-cm"></div></div></div>
+                                <div class="col"><div class="score-box p-3"><div class="small text-muted fw-bold mb-2"><i class="fa-solid fa-shield text-primary me-1"></i> Toàn vẹn (CI)</div><div class="fs-3 fw-bold res-ci"></div></div></div>
+                                <div class="col"><div class="score-box p-3"><div class="small text-muted fw-bold mb-2"><i class="fa-solid fa-scale-balanced text-warning me-1"></i> Giấy phép (CL)</div><div class="fs-3 fw-bold res-cl"></div></div></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 text-center border-start ps-md-4">
+                            <h6 class="fw-bold text-muted mb-3 text-uppercase small">Phân bố rủi ro đa chiều</h6>
+                            <div style="position: relative; height: 320px; width: 100%;"><canvas class="radarChartCanvas"></canvas></div>
+                        </div>
+                    </div>
+                    <div class="mt-5 pt-4 border-top d-flex justify-content-between align-items-center flex-wrap gap-3">
+                        <span class="text-muted fw-medium small"><i class="fa-solid fa-circle-check me-1 text-success"></i> Phân tích hoàn tất</span>
+                        <div class="dropdown">
+                    <button class="btn btn-outline-primary fw-bold rounded-pill px-4 dropdown-toggle action-btn shadow-sm" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa-solid fa-download me-1"></i> Tải báo cáo
+                    </button>
+                    <ul class="dropdown-menu shadow border-0 mt-2" style="border-radius: 0.75rem;">
+                        <li><a class="dropdown-item fw-medium py-2 btn-export-pdf" href="#"><i class="fa-solid fa-file-pdf text-danger me-2"></i> Định dạng PDF (.pdf)</a></li>
+                        <li><a class="dropdown-item fw-medium py-2 btn-export-word" href="#"><i class="fa-solid fa-file-word text-primary me-2"></i> Định dạng Word (.docx)</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item fw-medium py-2 btn-export-excel" href="#"><i class="fa-solid fa-file-excel text-success me-2"></i> Định dạng Excel (.xlsx)</a></li>
+                    </ul>
+                </div>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </main>
+
+    <div class="toast-container"></div>
+
+    <script>
+        const isLoggedIn = document.body.dataset.loggedIn === 'true';
+        const currentProjectId = document.body.dataset.projectId !== 'null' ? parseInt(document.body.dataset.projectId) : null;
+
+        const dropZone = document.getElementById('drop-zone');
+        const fileInput = document.getElementById('file-upload');
+        const loading = document.getElementById('loading');
+        const loadingText = document.getElementById('loading-text');
+        const resultsContainer = document.getElementById('results-container');
+        
+        let chartInstances = [];
+        let currentAnimatedPercent = 0;
+        let progressAnimationInterval = null;
+
+        function showToast(message, type = 'danger') {
+            const container = document.querySelector('.toast-container');
+            const icon = type === 'success' ? 'fa-check-circle' : (type === 'danger' ? 'fa-circle-xmark' : 'fa-circle-info');
+            const toastId = 'toast-' + Date.now();
+            
+            const toastHtml = `
+                <div id="${toastId}" class="toast align-items-center text-bg-${type} border-0 shadow-lg mb-2" role="alert">
+                    <div class="d-flex">
+                        <div class="toast-body fw-medium"><i class="fa-solid ${icon} me-2"></i> ${message}</div>
+                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+                    </div>
+                </div>`;
+            
+            container.insertAdjacentHTML('beforeend', toastHtml);
+            const toastElement = document.getElementById(toastId);
+            const bsToast = new bootstrap.Toast(toastElement, { delay: 4000 });
+            bsToast.show();
+            toastElement.addEventListener('hidden.bs.toast', () => toastElement.remove());
+        }
+
+        dropZone.addEventListener('click', () => {
+            if (!isLoggedIn) { window.location.href = "/login"; return; }
+            if (!currentProjectId) {
+                showToast("Vui lòng truy cập Workspace và chọn một Dự án để bắt đầu!", "warning");
+                setTimeout(() => window.location.href = "/management", 1500);
+                return;
+            }
+            fileInput.click();
+        });
+
+        function updateStep(stepNumber, status) {
+            const item = document.getElementById(`stepper-item-${stepNumber}`);
+            const counter = document.getElementById(`step-counter-${stepNumber}`);
+            
+            if (status === 'active') {
+                item.className = "stepper-item active";
+                counter.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i>`;
+            } else if (status === 'done') {
+                item.className = "stepper-item completed";
+                counter.innerHTML = `<i class="fa-solid fa-check"></i>`;
+            } else {
+                item.className = "stepper-item";
+                counter.innerHTML = stepNumber;
+            }
+        }
+
+        function renderRadarChart(canvasElement, cv, cm, ci, cl) {
+            return new Chart(canvasElement, {
+                type: 'radar',
+                data: {
+                    labels: ['Lỗ hổng (CV)', 'Sức khỏe (CM)', 'Toàn vẹn (CI)', 'Pháp lý (CL)'],
+                    datasets: [{
+                        label: 'Mức Rủi Ro',
+                        data: [cv, cm, ci, cl],
+                        backgroundColor: 'rgba(79, 70, 229, 0.2)',
+                        borderColor: 'rgba(79, 70, 229, 1)',
+                        pointBackgroundColor: 'rgba(79, 70, 229, 1)',
+                        pointBorderColor: '#fff',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: { r: { min: 0, max: 10, ticks: { stepSize: 2 } } }
+                }
+            });
+        }
+
+        function buildResultCard(data, index) {
+            const template = document.getElementById('result-card-template');
+            const clone = template.content.cloneNode(true);
+            
+            clone.querySelector('.res-filename').textContent = data.artifact_name;
+            clone.querySelector('.res-hash').textContent = data.hash_sha256 ? data.hash_sha256.substring(0, 15) + '...' : 'Không xác định';
+            clone.querySelector('.res-r').textContent = parseFloat(data.final_score).toFixed(2);
+            clone.querySelector('.res-cv').textContent = data.scores.CV;
+            clone.querySelector('.res-cm').textContent = data.scores.CM;
+            clone.querySelector('.res-ci').textContent = data.scores.CI;
+            clone.querySelector('.res-cl').textContent = data.scores.CL;
+
+            const badge = clone.querySelector('.res-badge');
+            if (data.decision === 'APPROVED') {
+                badge.innerHTML = '<span class="badge rounded-pill bg-success-subtle text-success px-4 py-2 fs-6 border border-success"><i class="fa-solid fa-check-circle me-1"></i> TIN DÙNG</span>';
+            } else if (data.decision === 'PENDING_REVIEW') {
+                badge.innerHTML = '<span class="badge rounded-pill bg-warning text-dark px-4 py-2 fs-6 border border-warning"><i class="fa-solid fa-user-shield me-1"></i> CHỜ DUYỆT (ĐIỂM MÙ MẠNG)</span>';
+            } else if (data.decision === 'PENDING') {
+                badge.innerHTML = '<span class="badge rounded-pill bg-warning-subtle text-warning-emphasis px-4 py-2 fs-6 border border-warning"><i class="fa-solid fa-triangle-exclamation me-1"></i> CẢNH BÁO</span>';
+            } else {
+                badge.innerHTML = '<span class="badge rounded-pill bg-danger-subtle text-danger px-4 py-2 fs-6 border border-danger"><i class="fa-solid fa-shield-virus me-1"></i> TỪ CHỐI</span>';
+            }
+
+            clone.querySelector('.btn-export-pdf').href = `/api/v1/export/${data.report_id}?format=pdf`;
+            clone.querySelector('.btn-export-word').href = `/api/v1/export/${data.report_id}?format=word`;
+            clone.querySelector('.btn-export-excel').href = `/api/v1/export/${data.report_id}?format=excel`;
+
+            const canvas = clone.querySelector('.radarChartCanvas');
+            canvas.id = `radarChart-${index}`;
+            
+            resultsContainer.appendChild(clone);
+
+            const ctx = document.getElementById(`radarChart-${index}`);
+            chartInstances.push(renderRadarChart(ctx, data.scores.CV, data.scores.CM, data.scores.CI, data.scores.CL));
+        }
+
+        let currentProgress = 0;
+
+
+        // HÀM UPDATE MỚI (CHẠY RẤT MƯỢT)
+        function updateProgressBar(stepNumber, message, fileIndex = 0, totalFiles = 1) {
+            const progressBar = document.getElementById('main-progress-bar');
+            const progressText = document.getElementById('progress-percentage');
+            const stepLabel = document.getElementById('progress-step-label');
+            const loadingTextUI = document.getElementById('loading-text');
+
+            // 1. SỬA LỖI LỆCH: Tính toán % mục tiêu (Target)
+            // Nếu step=1, bắt đầu từ 0%. Step=2, bắt đầu từ 25%. Step=3, bắt đầu từ 50%. Step=4, bắt đầu từ 75%.
+            const safeTotalFiles = totalFiles || 1;
+            const fileWeight = 100 / safeTotalFiles; 
+            const baseProgress = fileIndex * fileWeight; 
+            
+            // Công thức mới: (step - 1) để lấy mốc bắt đầu của giai đoạn hiện tại
+            let stepPercentOffset = ((stepNumber - 1) / 4) * fileWeight;
+            if (stepPercentOffset < 0) stepPercentOffset = 0;
+            
+            // Mục tiêu là điểm bắt đầu giai đoạn + một chút đệm để thanh bar trông "đang chạy"
+            const targetPercent = Math.min(baseProgress + stepPercentOffset + (fileWeight / 10), 100);
+
+            // 2. Cập nhật Text giai đoạn (Đảm bảo khớp Backend)
+            if (message) loadingTextUI.innerText = message;
+            if (stepLabel) {
+                // Luôn hiển thị đúng số bước Backend trả về
+                const displayStep = stepNumber > 4 ? 4 : (stepNumber < 1 ? 0 : stepNumber);
+                stepLabel.innerText = safeTotalFiles > 1 
+                    ? `File ${fileIndex + 1}/${safeTotalFiles} - Giai đoạn ${displayStep}/4` 
+                    : `Giai đoạn ${displayStep}/4`;
+            }
+
+            if (progressAnimationInterval) clearInterval(progressAnimationInterval);
+
+            // 3. Animation trượt mượt mà
+            progressAnimationInterval = setInterval(() => {
+                let diff = targetPercent - currentAnimatedPercent;
+                
+                if (Math.abs(diff) < 0.1) {
+                    currentAnimatedPercent = targetPercent;
+                    clearInterval(progressAnimationInterval);
+                } else {
+                    // Hiệu ứng Ease-out (Chậm dần khi đến mốc)
+                    currentAnimatedPercent += diff * 0.05; 
+                }
+                
+                if (progressBar) progressBar.style.width = currentAnimatedPercent + '%';
+                if (progressText) progressText.innerText = Math.floor(currentAnimatedPercent) + '%';
+
+                // Xử lý màu sắc khi hoàn tất
+                if (currentAnimatedPercent >= 99.5 && stepNumber >= 4 && fileIndex >= (safeTotalFiles - 1)) {
+                    progressBar.style.background = '#10b981'; 
+                    progressBar.classList.remove('progress-bar-animated');
+                    if (progressText) progressText.innerText = '100%';
+                } else {
+                    progressBar.style.background = 'linear-gradient(90deg, #4f46e5, #3b82f6)';
+                    progressBar.classList.add('progress-bar-animated');
+                }
+            }, 30);
+        }
+
+        const handleFileUpload = async (event) => {
+            const files = Array.from(event.target.files);
+            const totalFiles = files.length;
+            if (totalFiles === 0) return;
+
+            // Reset UI
+            chartInstances.forEach(chart => chart.destroy());
+            chartInstances = [];
+            resultsContainer.innerHTML = '';
+            dropZone.classList.add('d-none');
+            loading.classList.remove('d-none');
+            currentAnimatedPercent = 0;
+
+            for (let i = 0; i < totalFiles; i++) {
+                const file = files[i];
+                const trackingId = `track_${Date.now()}_${Math.random().toString(36).substr(2, 5)}`;
+                
+                updateProgressBar(1, `Đang xử lý ${file.name}...`, i, totalFiles);
+
+                // Polling trạng thái
+                const pollTimer = setInterval(async () => {
+                    try {
+                        const res = await fetch(`/api/v1/scan/status/${trackingId}`);
+                        if (res.ok) {
+                            const data = await res.json();
+                            updateProgressBar(data.step, data.message, i, totalFiles);
+                        }
+                    } catch (e) {}
+                }, 1000);
+
+                try {
+                    const formData = new FormData();
+                    formData.append("file", file);
+                    formData.append("project_id", currentProjectId);
+                    formData.append("tracking_id", trackingId);
+
+                    const response = await fetch('/api/v1/scan', { method: 'POST', body: formData });
+                    clearInterval(pollTimer);
+
+                    if (!response.ok) {
+                        const err = await response.json();
+                        throw new Error(err.detail || "Lỗi server");
+                    }
+
+                    const result = await response.json();
+                    updateProgressBar(4, `Hoàn tất ${file.name}`, i, totalFiles);
+                    buildResultCard(result, resultsContainer.children.length);
+
+                } catch (error) {
+                    clearInterval(pollTimer);
+                    showToast(error.message, "danger");
+                }
+            }
+
+            // Kết thúc lô
+            setTimeout(() => {
+                loading.classList.add('d-none');
+                dropZone.classList.remove('d-none');
+                showToast(`Đã xử lý xong ${totalFiles} tệp!`, "success");
+            }, 1200);
+            fileInput.value = '';
+        };
+
+        fileInput.addEventListener('change', handleFileUpload);
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

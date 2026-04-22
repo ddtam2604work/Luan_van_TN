@@ -1,0 +1,285 @@
+{
+    "artifact": "urllib3_warning_23s.zip",
+    "hash": "1de1c2dc339a306937f0e69d65c43eb2f3f60eab7250d229548e750c0b9b897c",
+    "final_score": 2.9,
+    "weakest_link": {
+        "name": "cryptography",
+        "version": "2.8",
+        "purl": "pkg:pypi/cryptography@2.8",
+        "license": "MIT",
+        "raw_metrics": {
+            "cvss_v3": 8.5,
+            "scorecard": 5.0
+        },
+        "scores": {
+            "CV": 2.0,
+            "CM": 5.0,
+            "CI": 0.0,
+            "CL": 10.0
+        },
+        "r_score": 2.9,
+        "is_blind_spot": false
+    },
+    "project_integrity": {
+        "signed": false,
+        "virustotal_flags": 0,
+        "yara_alerts": 2,
+        "base_ci_score": 0.0,
+        "base_cm_score": 10.0
+    },
+    "total_components": 14,
+    "details": [
+        {
+            "name": "cryptography",
+            "version": "2.8",
+            "purl": "pkg:pypi/cryptography@2.8",
+            "license": "MIT",
+            "raw_metrics": {
+                "cvss_v3": 8.5,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 2.0,
+                "CM": 5.0,
+                "CI": 0.0,
+                "CL": 10.0
+            },
+            "r_score": 2.9,
+            "is_blind_spot": false
+        },
+        {
+            "name": "flaky",
+            "version": "3.6.1",
+            "purl": "pkg:pypi/flaky@3.6.1",
+            "license": "MIT",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 5.0,
+                "CI": 0.0,
+                "CL": 10.0
+            },
+            "r_score": 6.52,
+            "is_blind_spot": false
+        },
+        {
+            "name": "gcp-devrel-py-tools",
+            "version": "0.0.15",
+            "purl": "pkg:pypi/gcp-devrel-py-tools@0.0.15",
+            "license": "MIT",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 5.0,
+                "CI": 0.0,
+                "CL": 10.0
+            },
+            "r_score": 6.52,
+            "is_blind_spot": false
+        },
+        {
+            "name": "mock",
+            "version": "3.0.5",
+            "purl": "pkg:pypi/mock@3.0.5",
+            "license": "MIT",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 5.0,
+                "CI": 0.0,
+                "CL": 10.0
+            },
+            "r_score": 6.52,
+            "is_blind_spot": false
+        },
+        {
+            "name": "pysocks",
+            "version": "1.7.1",
+            "purl": "pkg:pypi/pysocks@1.7.1",
+            "license": "MIT",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 5.0,
+                "CI": 0.0,
+                "CL": 10.0
+            },
+            "r_score": 6.52,
+            "is_blind_spot": false
+        },
+        {
+            "name": "pytest",
+            "version": "4.6.9",
+            "purl": "pkg:pypi/pytest@4.6.9",
+            "license": "MIT",
+            "raw_metrics": {
+                "cvss_v3": 8.5,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 2.0,
+                "CM": 5.0,
+                "CI": 0.0,
+                "CL": 10.0
+            },
+            "r_score": 2.9,
+            "is_blind_spot": false
+        },
+        {
+            "name": "pytest-freezegun",
+            "version": "0.4.2",
+            "purl": "pkg:pypi/pytest-freezegun@0.4.2",
+            "license": "MIT",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 5.0,
+                "CI": 0.0,
+                "CL": 10.0
+            },
+            "r_score": 6.52,
+            "is_blind_spot": false
+        },
+        {
+            "name": "pytest-timeout",
+            "version": "1.3.4",
+            "purl": "pkg:pypi/pytest-timeout@1.3.4",
+            "license": "MIT",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 5.0,
+                "CI": 0.0,
+                "CL": 10.0
+            },
+            "r_score": 6.52,
+            "is_blind_spot": false
+        },
+        {
+            "name": "python-dateutil",
+            "version": "2.8.1",
+            "purl": "pkg:pypi/python-dateutil@2.8.1",
+            "license": "MIT",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 5.0,
+                "CI": 0.0,
+                "CL": 10.0
+            },
+            "r_score": 6.52,
+            "is_blind_spot": false
+        },
+        {
+            "name": "tornado",
+            "version": "5.1.1",
+            "purl": "pkg:pypi/tornado@5.1.1",
+            "license": "MIT",
+            "raw_metrics": {
+                "cvss_v3": 8.5,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 2.0,
+                "CM": 5.0,
+                "CI": 0.0,
+                "CL": 10.0
+            },
+            "r_score": 2.9,
+            "is_blind_spot": false
+        },
+        {
+            "name": "tornado",
+            "version": "6.0.3",
+            "purl": "pkg:pypi/tornado@6.0.3",
+            "license": "MIT",
+            "raw_metrics": {
+                "cvss_v3": 8.5,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 2.0,
+                "CM": 5.0,
+                "CI": 0.0,
+                "CL": 10.0
+            },
+            "r_score": 2.9,
+            "is_blind_spot": false
+        },
+        {
+            "name": "trustme",
+            "version": "0.5.3",
+            "purl": "pkg:pypi/trustme@0.5.3",
+            "license": "MIT",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 5.0,
+                "CI": 0.0,
+                "CL": 10.0
+            },
+            "r_score": 6.52,
+            "is_blind_spot": false
+        },
+        {
+            "name": "urllib3",
+            "version": "1.26.4",
+            "purl": "pkg:pypi/urllib3@1.26.4",
+            "license": "MIT",
+            "raw_metrics": {
+                "cvss_v3": 8.5,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 2.0,
+                "CM": 5.0,
+                "CI": 0.0,
+                "CL": 10.0
+            },
+            "r_score": 2.9,
+            "is_blind_spot": false
+        },
+        {
+            "name": "win-inet-pton",
+            "version": "1.1.0",
+            "purl": "pkg:pypi/win-inet-pton@1.1.0",
+            "license": "MIT",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 5.0,
+                "CI": 0.0,
+                "CL": 10.0
+            },
+            "r_score": 6.52,
+            "is_blind_spot": false
+        }
+    ]
+}
