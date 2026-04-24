@@ -1,0 +1,83 @@
+{
+    "artifact": "moment-develop.zip",
+    "hash": "18ebd8c3ee312dc3fb23d8c09268528c04853c57fe2c56ef6a4f6f82ef776c39",
+    "final_score": 7.3,
+    "weakest_link": {
+        "name": "actions/checkout",
+        "version": "v3",
+        "purl": "pkg:github/actions/checkout@v3",
+        "license": "MIT",
+        "raw_metrics": {
+            "cvss_v3": 0.0,
+            "scorecard": 5.0
+        },
+        "scores": {
+            "CV": 10.0,
+            "CM": 0.0,
+            "CI": 9.0,
+            "CL": 10.0
+        },
+        "r_score": 7.3
+    },
+    "project_integrity": {
+        "signed": false,
+        "virustotal_flags": 0,
+        "yara_alerts": 14,
+        "base_ci_score": 9.0,
+        "base_cm_score": 0.0
+    },
+    "total_components": 3,
+    "details": [
+        {
+            "name": "actions/checkout",
+            "version": "v3",
+            "purl": "pkg:github/actions/checkout@v3",
+            "license": "MIT",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        },
+        {
+            "name": "actions/setup-node",
+            "version": "v3",
+            "purl": "pkg:github/actions/setup-node@v3",
+            "license": "MIT",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        },
+        {
+            "name": "moment",
+            "version": "2.29.4",
+            "purl": "pkg:npm/moment@2.29.4",
+            "license": "MIT",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        }
+    ]
+}

@@ -1,0 +1,24 @@
+{
+    "artifact": "scikit-learn-main.zip",
+    "hash": "0148ca1bc6955792b681c6c2c0ba6d79b5f14061eafbd4143afd40a5cd910168",
+    "final_score": 10.0,
+    "weakest_link": {
+        "name": "N/A",
+        "scores": {
+            "CV": 10.0,
+            "CM": 10.0,
+            "CI": 9.0,
+            "CL": 10.0
+        },
+        "r_score": 10.0
+    },
+    "project_integrity": {
+        "signed": false,
+        "virustotal_flags": 0,
+        "yara_alerts": 3,
+        "base_ci_score": 9.0,
+        "base_cm_score": 0.0
+    },
+    "total_components": 0,
+    "details": []
+}

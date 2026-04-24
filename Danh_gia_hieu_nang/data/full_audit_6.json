@@ -1,0 +1,372 @@
+{
+    "artifact": "lodash-main.zip",
+    "hash": "5a2316399906a7ecaa12a2494b511b6c842944e87a44a03811e2999edc88fddf",
+    "final_score": 7.3,
+    "weakest_link": {
+        "name": "actions/checkout",
+        "version": "v4",
+        "purl": "pkg:github/actions/checkout@v4",
+        "license": "MIT",
+        "raw_metrics": {
+            "cvss_v3": 0.0,
+            "scorecard": 5.0
+        },
+        "scores": {
+            "CV": 10.0,
+            "CM": 0.0,
+            "CI": 9.0,
+            "CL": 10.0
+        },
+        "r_score": 7.3
+    },
+    "project_integrity": {
+        "signed": false,
+        "virustotal_flags": 0,
+        "yara_alerts": 9,
+        "base_ci_score": 9.0,
+        "base_cm_score": 0.0
+    },
+    "total_components": 20,
+    "details": [
+        {
+            "name": "actions/checkout",
+            "version": "v4",
+            "purl": "pkg:github/actions/checkout@v4",
+            "license": "MIT",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        },
+        {
+            "name": "actions/checkout",
+            "version": "v4",
+            "purl": "pkg:github/actions/checkout@v4",
+            "license": "MIT",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        },
+        {
+            "name": "actions/checkout",
+            "version": "v4",
+            "purl": "pkg:github/actions/checkout@v4",
+            "license": "MIT",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        },
+        {
+            "name": "actions/checkout",
+            "version": "v4",
+            "purl": "pkg:github/actions/checkout@v4",
+            "license": "MIT",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        },
+        {
+            "name": "actions/checkout",
+            "version": "v4",
+            "purl": "pkg:github/actions/checkout@v4",
+            "license": "MIT",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        },
+        {
+            "name": "actions/checkout",
+            "version": "v4.3.0",
+            "purl": "pkg:github/actions/checkout@v4.3.0",
+            "license": "MIT",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        },
+        {
+            "name": "actions/checkout",
+            "version": "v4.3.0",
+            "purl": "pkg:github/actions/checkout@v4.3.0",
+            "license": "MIT",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        },
+        {
+            "name": "actions/checkout",
+            "version": "v5.0.0",
+            "purl": "pkg:github/actions/checkout@v5.0.0",
+            "license": "MIT",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        },
+        {
+            "name": "actions/setup-node",
+            "version": "v4",
+            "purl": "pkg:github/actions/setup-node@v4",
+            "license": "MIT",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        },
+        {
+            "name": "actions/setup-node",
+            "version": "v4",
+            "purl": "pkg:github/actions/setup-node@v4",
+            "license": "MIT",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        },
+        {
+            "name": "actions/setup-node",
+            "version": "v4",
+            "purl": "pkg:github/actions/setup-node@v4",
+            "license": "MIT",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        },
+        {
+            "name": "actions/setup-node",
+            "version": "v4",
+            "purl": "pkg:github/actions/setup-node@v4",
+            "license": "MIT",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        },
+        {
+            "name": "actions/upload-artifact",
+            "version": "v4.6.2",
+            "purl": "pkg:github/actions/upload-artifact@v4.6.2",
+            "license": "MIT",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        },
+        {
+            "name": "github/codeql-action/analyze",
+            "version": "v3.30.9",
+            "purl": "pkg:github/github/codeql-action@v3.30.9#analyze",
+            "license": "MIT",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        },
+        {
+            "name": "github/codeql-action/autobuild",
+            "version": "v3.30.9",
+            "purl": "pkg:github/github/codeql-action@v3.30.9#autobuild",
+            "license": "MIT",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        },
+        {
+            "name": "github/codeql-action/init",
+            "version": "v3.30.9",
+            "purl": "pkg:github/github/codeql-action@v3.30.9#init",
+            "license": "MIT",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        },
+        {
+            "name": "github/codeql-action/upload-sarif",
+            "version": "v3.30.9",
+            "purl": "pkg:github/github/codeql-action@v3.30.9#upload-sarif",
+            "license": "MIT",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        },
+        {
+            "name": "ossf/scorecard-action",
+            "version": "v2.4.0",
+            "purl": "pkg:github/ossf/scorecard-action@v2.4.0",
+            "license": "MIT",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        },
+        {
+            "name": "oven-sh/setup-bun",
+            "version": "v1",
+            "purl": "pkg:github/oven-sh/setup-bun@v1",
+            "license": "MIT",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        },
+        {
+            "name": "renovatebot/github-action",
+            "version": "v44.0.0",
+            "purl": "pkg:github/renovatebot/github-action@v44.0.0",
+            "license": "MIT",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        }
+    ]
+}

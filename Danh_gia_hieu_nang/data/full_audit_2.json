@@ -1,0 +1,83 @@
+{
+    "artifact": "chalk-main.zip",
+    "hash": "ccb4c7194fac13d37dd930381254b176380140f4c23d6787bee0fc82f1856eb1",
+    "final_score": 7.3,
+    "weakest_link": {
+        "name": "actions/checkout",
+        "version": "v4",
+        "purl": "pkg:github/actions/checkout@v4",
+        "license": "MIT",
+        "raw_metrics": {
+            "cvss_v3": 0.0,
+            "scorecard": 5.0
+        },
+        "scores": {
+            "CV": 10.0,
+            "CM": 0.0,
+            "CI": 9.0,
+            "CL": 10.0
+        },
+        "r_score": 7.3
+    },
+    "project_integrity": {
+        "signed": false,
+        "virustotal_flags": 0,
+        "yara_alerts": 1,
+        "base_ci_score": 9.0,
+        "base_cm_score": 0.0
+    },
+    "total_components": 3,
+    "details": [
+        {
+            "name": "actions/checkout",
+            "version": "v4",
+            "purl": "pkg:github/actions/checkout@v4",
+            "license": "MIT",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        },
+        {
+            "name": "actions/setup-node",
+            "version": "v4",
+            "purl": "pkg:github/actions/setup-node@v4",
+            "license": "MIT",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        },
+        {
+            "name": "codecov/codecov-action",
+            "version": "v2",
+            "purl": "pkg:github/codecov/codecov-action@v2",
+            "license": "MIT",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        }
+    ]
+}

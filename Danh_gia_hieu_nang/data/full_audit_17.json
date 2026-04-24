@@ -1,0 +1,678 @@
+{
+    "artifact": "django-main.zip",
+    "hash": "67177d05c5da3943d24794c70ca30ede426af4d850c84a880b4933eeb5a7e71a",
+    "final_score": 7.3,
+    "weakest_link": {
+        "name": "actions/cache",
+        "version": "v4",
+        "purl": "pkg:github/actions/cache@v4",
+        "license": "CUSTOM_FOUND",
+        "raw_metrics": {
+            "cvss_v3": 0.0,
+            "scorecard": 5.0
+        },
+        "scores": {
+            "CV": 10.0,
+            "CM": 0.0,
+            "CI": 9.0,
+            "CL": 10.0
+        },
+        "r_score": 7.3
+    },
+    "project_integrity": {
+        "signed": false,
+        "virustotal_flags": 0,
+        "yara_alerts": 19,
+        "base_ci_score": 9.0,
+        "base_cm_score": 0.0
+    },
+    "total_components": 38,
+    "details": [
+        {
+            "name": "actions/cache",
+            "version": "v4",
+            "purl": "pkg:github/actions/cache@v4",
+            "license": "CUSTOM_FOUND",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        },
+        {
+            "name": "actions/cache",
+            "version": "v4",
+            "purl": "pkg:github/actions/cache@v4",
+            "license": "CUSTOM_FOUND",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        },
+        {
+            "name": "actions/checkout",
+            "version": "v6",
+            "purl": "pkg:github/actions/checkout@v6",
+            "license": "CUSTOM_FOUND",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        },
+        {
+            "name": "actions/checkout",
+            "version": "v6",
+            "purl": "pkg:github/actions/checkout@v6",
+            "license": "CUSTOM_FOUND",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        },
+        {
+            "name": "actions/checkout",
+            "version": "v6",
+            "purl": "pkg:github/actions/checkout@v6",
+            "license": "CUSTOM_FOUND",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        },
+        {
+            "name": "actions/checkout",
+            "version": "v6",
+            "purl": "pkg:github/actions/checkout@v6",
+            "license": "CUSTOM_FOUND",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        },
+        {
+            "name": "actions/checkout",
+            "version": "v6",
+            "purl": "pkg:github/actions/checkout@v6",
+            "license": "CUSTOM_FOUND",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        },
+        {
+            "name": "actions/checkout",
+            "version": "v6",
+            "purl": "pkg:github/actions/checkout@v6",
+            "license": "CUSTOM_FOUND",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        },
+        {
+            "name": "actions/checkout",
+            "version": "v6",
+            "purl": "pkg:github/actions/checkout@v6",
+            "license": "CUSTOM_FOUND",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        },
+        {
+            "name": "actions/checkout",
+            "version": "v6",
+            "purl": "pkg:github/actions/checkout@v6",
+            "license": "CUSTOM_FOUND",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        },
+        {
+            "name": "actions/checkout",
+            "version": "v6",
+            "purl": "pkg:github/actions/checkout@v6",
+            "license": "CUSTOM_FOUND",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        },
+        {
+            "name": "actions/checkout",
+            "version": "v6",
+            "purl": "pkg:github/actions/checkout@v6",
+            "license": "CUSTOM_FOUND",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        },
+        {
+            "name": "actions/checkout",
+            "version": "v6",
+            "purl": "pkg:github/actions/checkout@v6",
+            "license": "CUSTOM_FOUND",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        },
+        {
+            "name": "actions/checkout",
+            "version": "v6",
+            "purl": "pkg:github/actions/checkout@v6",
+            "license": "CUSTOM_FOUND",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        },
+        {
+            "name": "actions/checkout",
+            "version": "v6",
+            "purl": "pkg:github/actions/checkout@v6",
+            "license": "CUSTOM_FOUND",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        },
+        {
+            "name": "actions/download-artifact",
+            "version": "v4",
+            "purl": "pkg:github/actions/download-artifact@v4",
+            "license": "CUSTOM_FOUND",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        },
+        {
+            "name": "actions/first-interaction",
+            "version": "v1",
+            "purl": "pkg:github/actions/first-interaction@v1",
+            "license": "CUSTOM_FOUND",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        },
+        {
+            "name": "actions/github-script",
+            "version": "v8",
+            "purl": "pkg:github/actions/github-script@v8",
+            "license": "CUSTOM_FOUND",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        },
+        {
+            "name": "actions/github-script",
+            "version": "v8",
+            "purl": "pkg:github/actions/github-script@v8",
+            "license": "CUSTOM_FOUND",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        },
+        {
+            "name": "actions/github-script",
+            "version": "v8",
+            "purl": "pkg:github/actions/github-script@v8",
+            "license": "CUSTOM_FOUND",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        },
+        {
+            "name": "actions/setup-node",
+            "version": "v5",
+            "purl": "pkg:github/actions/setup-node@v5",
+            "license": "CUSTOM_FOUND",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        },
+        {
+            "name": "actions/setup-node",
+            "version": "v5",
+            "purl": "pkg:github/actions/setup-node@v5",
+            "license": "CUSTOM_FOUND",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        },
+        {
+            "name": "actions/setup-python",
+            "version": "v6",
+            "purl": "pkg:github/actions/setup-python@v6",
+            "license": "CUSTOM_FOUND",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        },
+        {
+            "name": "actions/setup-python",
+            "version": "v6",
+            "purl": "pkg:github/actions/setup-python@v6",
+            "license": "CUSTOM_FOUND",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        },
+        {
+            "name": "actions/setup-python",
+            "version": "v6",
+            "purl": "pkg:github/actions/setup-python@v6",
+            "license": "CUSTOM_FOUND",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        },
+        {
+            "name": "actions/setup-python",
+            "version": "v6",
+            "purl": "pkg:github/actions/setup-python@v6",
+            "license": "CUSTOM_FOUND",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        },
+        {
+            "name": "actions/setup-python",
+            "version": "v6",
+            "purl": "pkg:github/actions/setup-python@v6",
+            "license": "CUSTOM_FOUND",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        },
+        {
+            "name": "actions/setup-python",
+            "version": "v6",
+            "purl": "pkg:github/actions/setup-python@v6",
+            "license": "CUSTOM_FOUND",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        },
+        {
+            "name": "actions/setup-python",
+            "version": "v6",
+            "purl": "pkg:github/actions/setup-python@v6",
+            "license": "CUSTOM_FOUND",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        },
+        {
+            "name": "actions/setup-python",
+            "version": "v6",
+            "purl": "pkg:github/actions/setup-python@v6",
+            "license": "CUSTOM_FOUND",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        },
+        {
+            "name": "actions/setup-python",
+            "version": "v6",
+            "purl": "pkg:github/actions/setup-python@v6",
+            "license": "CUSTOM_FOUND",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        },
+        {
+            "name": "actions/setup-python",
+            "version": "v6",
+            "purl": "pkg:github/actions/setup-python@v6",
+            "license": "CUSTOM_FOUND",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        },
+        {
+            "name": "actions/upload-artifact",
+            "version": "v4",
+            "purl": "pkg:github/actions/upload-artifact@v4",
+            "license": "CUSTOM_FOUND",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        },
+        {
+            "name": "actions/upload-artifact",
+            "version": "v4",
+            "purl": "pkg:github/actions/upload-artifact@v4",
+            "license": "CUSTOM_FOUND",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        },
+        {
+            "name": "conda-incubator/setup-miniconda",
+            "version": "835234971496cad1653abb28a638a281cf32541f",
+            "purl": "pkg:github/conda-incubator/setup-miniconda@835234971496cad1653abb28a638a281cf32541f",
+            "license": "CUSTOM_FOUND",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        },
+        {
+            "name": "liskin/gh-problem-matcher-wrap",
+            "version": "e7b7beaaafa52524748b31a381160759d68d61fb",
+            "purl": "pkg:github/liskin/gh-problem-matcher-wrap@e7b7beaaafa52524748b31a381160759d68d61fb",
+            "license": "CUSTOM_FOUND",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        },
+        {
+            "name": "psf/black",
+            "version": "stable",
+            "purl": "pkg:github/psf/black@stable",
+            "license": "CUSTOM_FOUND",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        },
+        {
+            "name": "zizmorcore/zizmor-action",
+            "version": "v0.3.0",
+            "purl": "pkg:github/zizmorcore/zizmor-action@v0.3.0",
+            "license": "CUSTOM_FOUND",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 0.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 7.3
+        }
+    ]
+}

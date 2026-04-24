@@ -1,0 +1,389 @@
+{
+    "artifact": "requests-main.zip",
+    "hash": "0d572b0177a7a8da9620654705ac0950fb091dce92e76de2eff94971d2b4e9cc",
+    "final_score": 8.55,
+    "weakest_link": {
+        "name": "actions/checkout",
+        "version": "de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+        "purl": "pkg:github/actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+        "license": "MIT",
+        "raw_metrics": {
+            "cvss_v3": 0.0,
+            "scorecard": 5.0
+        },
+        "scores": {
+            "CV": 10.0,
+            "CM": 5.0,
+            "CI": 9.0,
+            "CL": 10.0
+        },
+        "r_score": 8.55
+    },
+    "project_integrity": {
+        "signed": false,
+        "virustotal_flags": 0,
+        "yara_alerts": 0,
+        "base_ci_score": 9.0,
+        "base_cm_score": 10.0
+    },
+    "total_components": 21,
+    "details": [
+        {
+            "name": "actions/checkout",
+            "version": "de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+            "purl": "pkg:github/actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+            "license": "MIT",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 5.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 8.55
+        },
+        {
+            "name": "actions/checkout",
+            "version": "v6.0.2",
+            "purl": "pkg:github/actions/checkout@v6.0.2",
+            "license": "MIT",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 5.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 8.55
+        },
+        {
+            "name": "actions/checkout",
+            "version": "v6.0.2",
+            "purl": "pkg:github/actions/checkout@v6.0.2",
+            "license": "MIT",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 5.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 8.55
+        },
+        {
+            "name": "actions/checkout",
+            "version": "v6.0.2",
+            "purl": "pkg:github/actions/checkout@v6.0.2",
+            "license": "MIT",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 5.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 8.55
+        },
+        {
+            "name": "actions/checkout",
+            "version": "v6.0.2",
+            "purl": "pkg:github/actions/checkout@v6.0.2",
+            "license": "MIT",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 5.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 8.55
+        },
+        {
+            "name": "actions/checkout",
+            "version": "v6.0.2",
+            "purl": "pkg:github/actions/checkout@v6.0.2",
+            "license": "MIT",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 5.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 8.55
+        },
+        {
+            "name": "actions/download-artifact",
+            "version": "v8.0.0",
+            "purl": "pkg:github/actions/download-artifact@v8.0.0",
+            "license": "MIT",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 5.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 8.55
+        },
+        {
+            "name": "actions/setup-python",
+            "version": "a309ff8b426b58ec0e2a45f0f869d46889d02405",
+            "purl": "pkg:github/actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405",
+            "license": "MIT",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 5.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 8.55
+        },
+        {
+            "name": "actions/setup-python",
+            "version": "v6.2.0",
+            "purl": "pkg:github/actions/setup-python@v6.2.0",
+            "license": "MIT",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 5.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 8.55
+        },
+        {
+            "name": "actions/setup-python",
+            "version": "v6.2.0",
+            "purl": "pkg:github/actions/setup-python@v6.2.0",
+            "license": "MIT",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 5.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 8.55
+        },
+        {
+            "name": "actions/setup-python",
+            "version": "v6.2.0",
+            "purl": "pkg:github/actions/setup-python@v6.2.0",
+            "license": "MIT",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 5.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 8.55
+        },
+        {
+            "name": "actions/upload-artifact",
+            "version": "bbbca2ddaa5d8feaa63e36b76fdaad77386f024f",
+            "purl": "pkg:github/actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f",
+            "license": "MIT",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 5.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 8.55
+        },
+        {
+            "name": "dessant/lock-threads",
+            "version": "v6.0.0",
+            "purl": "pkg:github/dessant/lock-threads@v6.0.0",
+            "license": "MIT",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 5.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 8.55
+        },
+        {
+            "name": "github/codeql-action/analyze",
+            "version": "v4.35.1",
+            "purl": "pkg:github/github/codeql-action@v4.35.1#analyze",
+            "license": "MIT",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 5.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 8.55
+        },
+        {
+            "name": "github/codeql-action/autobuild",
+            "version": "v4.35.1",
+            "purl": "pkg:github/github/codeql-action@v4.35.1#autobuild",
+            "license": "MIT",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 5.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 8.55
+        },
+        {
+            "name": "github/codeql-action/init",
+            "version": "v4.35.1",
+            "purl": "pkg:github/github/codeql-action@v4.35.1#init",
+            "license": "MIT",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 5.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 8.55
+        },
+        {
+            "name": "pre-commit/action",
+            "version": "v3.0.0",
+            "purl": "pkg:github/pre-commit/action@v3.0.0",
+            "license": "MIT",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 5.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 8.55
+        },
+        {
+            "name": "pypa/gh-action-pypi-publish",
+            "version": "v1.13.0",
+            "purl": "pkg:github/pypa/gh-action-pypi-publish@v1.13.0",
+            "license": "MIT",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 5.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 8.55
+        },
+        {
+            "name": "pytest-httpbin",
+            "version": "2.1.0",
+            "purl": "pkg:pypi/pytest-httpbin@2.1.0",
+            "license": "MIT",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 5.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 8.55
+        },
+        {
+            "name": "sphinx",
+            "version": "7.2.6",
+            "purl": "pkg:pypi/sphinx@7.2.6",
+            "license": "MIT",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 5.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 8.55
+        },
+        {
+            "name": "zizmorcore/zizmor-action",
+            "version": "v0.5.2",
+            "purl": "pkg:github/zizmorcore/zizmor-action@v0.5.2",
+            "license": "MIT",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 10.0,
+                "CM": 5.0,
+                "CI": 9.0,
+                "CL": 10.0
+            },
+            "r_score": 8.55
+        }
+    ]
+}
