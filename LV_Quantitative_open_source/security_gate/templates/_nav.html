@@ -1,0 +1,103 @@
+<style>
+    :root {
+        --brand-primary: #0f4c75;
+        --brand-gradient: linear-gradient(135deg, #1b262c 0%, #0f4c75 100%);
+        --nav-hover-bg: rgba(255, 255, 255, 0.15);
+    }
+    
+    .navbar-custom {
+        background: var(--brand-gradient);
+        border-bottom: 2px solid #3282b8;
+    }
+    
+    .navbar-custom .nav-link {
+        color: rgba(255, 255, 255, 0.85);
+        border-radius: 8px;
+        transition: all 0.2s ease-in-out;
+        padding: 0.5rem 1rem;
+    }
+    
+    .navbar-custom .nav-link:hover,
+    .navbar-custom .nav-link.active {
+        color: #ffffff;
+        background-color: var(--nav-hover-bg);
+        transform: translateY(-1px);
+    }
+    
+    .navbar-brand .brand-icon-wrapper {
+        width: 36px; 
+        height: 36px;
+        transition: transform 0.3s ease;
+    }
+    
+    .navbar-brand:hover .brand-icon-wrapper {
+        transform: scale(1.1);
+    }
+    
+    .dropdown-menu-custom {
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom shadow-sm sticky-top">
+    <div class="container-lg">
+        <a class="navbar-brand fw-bold d-flex align-items-center" href="/">
+            <div class="bg-white rounded-circle p-1 me-2 d-flex align-items-center justify-content-center brand-icon-wrapper">
+                <i class="fa-solid fa-shield-halved fs-5" style="color: var(--brand-primary);"></i>
+            </div>
+            <span class="fs-4 tracking-wide">GuardPro</span>
+        </a>
+
+        <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navMenu">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4 gap-1">
+                <li class="nav-item">
+                    <a class="nav-link fw-medium {% if request.path == '/management' %}active{% endif %}" href="/management">
+                        <i class="fa-solid fa-folder-tree me-1"></i> Workspace
+                    </a>
+                </li>
+
+                {% if project %}
+                <li class="nav-item">
+                    <a class="nav-link fw-medium {% if '/project/' in request.path and 'history' not in request.path %}active{% endif %}" href="/project/{{ project.id }}">
+                        <i class="fa-solid fa-expand me-1"></i> Quét mã / Phân tích
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fw-medium {% if 'history' in request.path %}active{% endif %}" href="/project/{{ project.id }}/history">
+                        <i class="fa-solid fa-clock-rotate-left me-1"></i> Lịch sử
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
+
+            <div class="d-flex align-items-center gap-3 mt-3 mt-lg-0">
+                {% if user %}
+                    <div class="d-flex align-items-center bg-dark bg-opacity-25 rounded-pill px-3 py-1">
+                        <i class="fa-solid fa-circle-user text-white fs-5 me-2"></i>
+                        <span class="text-white small">
+                            Xin chào, <strong>{{ user.full_name or user.username }}</strong>
+                            {% if user.role == 'admin' %}
+                                <span class="badge bg-danger ms-1 rounded-pill" style="font-size: 0.65em;">Trưởng dự án</span>
+                            {% endif %}
+                            {% if user.role == 'member' %}
+                                <span class="badge bg-danger ms-1 rounded-pill" style="font-size: 0.65em;">Member</span>
+                            {% endif %}
+                        </span>
+                    </div>
+                    <a href="/logout" class="btn btn-danger btn-sm px-4 py-2 fw-bold rounded-pill shadow-sm d-flex align-items-center transition">
+                        <i class="fa-solid fa-power-off me-1"></i> Đăng xuất
+                    </a>
+                {% else %}
+                    <a href="/login" class="btn btn-outline-light btn-sm px-4 py-2 fw-bold rounded-pill transition">Đăng nhập</a>
+                    <a href="/register" class="btn btn-light btn-sm px-4 py-2 fw-bold rounded-pill shadow-sm transition" style="color: var(--brand-primary);">Đăng ký</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</nav>

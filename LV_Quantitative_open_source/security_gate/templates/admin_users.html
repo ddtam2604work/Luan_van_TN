@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý Phân quyền - GuardPro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        :root {
+            --brand-gradient: linear-gradient(135deg, #1b262c 0%, #0f4c75 100%);
+            --accent-color: #3282b8;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Navbar tối giản nhưng đầy đủ tính năng */
+        .navbar-minimal {
+            background: var(--brand-gradient);
+            border-bottom: 2px solid var(--accent-color);
+            padding: 0.6rem 0;
+        }
+        
+        .navbar-brand .brand-icon-wrapper {
+            width: 32px; 
+            height: 32px;
+        }
+
+        .user-pill {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50px;
+            padding: 5px 15px;
+            color: white;
+            font-size: 0.85rem;
+        }
+
+        /* Card & Table */
+        .card-custom {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        .table thead {
+            background-color: #212529;
+            color: white;
+        }
+
+        .badge-admin { background-color: #dc3545; }
+        .badge-member { background-color: #6c757d; }
+
+        .btn-promote {
+            transition: all 0.2s;
+        }
+        .btn-promote:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(220, 53, 69, 0.2);
+        }
+        /* Tinh chỉnh bảng nhân sự */
+        .user-table thead {
+            background-color: #f8fafc;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .user-table th {
+            font-weight: 700;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.025em;
+            font-size: 0.75rem;
+        }
+
+        .user-table tbody tr {
+            transition: all 0.2s;
+        }
+
+        .user-table tbody tr:hover {
+            background-color: #f1f5f9;
+        }
+
+        /* Badge vai trò kiểu mới */
+        .role-badge {
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.75rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .user-table thead th {
+            font-weight: 800 !important; /* Cực đậm cho tiêu đề */
+            color: #1e293b !important;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 0.05em;
+            background-color: #f1f5f9;
+        }
+        .role-admin {
+            background-color: #fef2f2;
+            color: #dc2626;
+            border: 1px solid #fecaca;
+        }
+
+        .role-member {
+            background-color: #f0f9ff;
+            color: #0369a1;
+            border: 1px solid #bae6fd;
+        }
+
+        /* Nút hành động */
+        .btn-action {
+            font-weight: 800 !important;  
+            padding: 0.6rem 1.2rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 0.75rem;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .action-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-width: 220px; /* Đảm bảo độ rộng cố định để căn giữa chuẩn */
+        }
+
+        .user-table tbody td {
+            font-weight: 700 !important; /* Đậm cho nội dung */
+            color: #334155;
+            padding-top: 1.25rem;
+            padding-bottom: 1.25rem;
+        }
+
+        .column-center {
+            text-align: center !important;
+        }
+
+        .btn-promote {
+            background-color: #fff;
+            color: #4f46e5;
+            border: 1px solid #e2e8f0;
+        }
+
+        .btn-promote:hover {
+            background-color: #4f46e5;
+            color: #fff;
+            border-color: #4f46e5;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.2);
+        }
+
+        .btn-demote {
+            background-color: #fff;
+            color: #f59e0b;
+            border: 1px solid #e2e8f0;
+        }
+
+        .btn-demote:hover {
+            background-color: #fffbeb;
+            color: #d97706;
+            border-color: #f59e0b;
+            transform: translateY(-1px);
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-dark navbar-minimal shadow-sm sticky-top">
+        <div class="container-lg d-flex justify-content-between align-items-center">
+            <a class="navbar-brand fw-bold d-flex align-items-center m-0" href="/">
+                <div class="bg-white rounded-circle p-1 me-2 d-flex align-items-center justify-content-center brand-icon-wrapper">
+                    <i class="fa-solid fa-shield-halved fs-6" style="color: #0f4c75;"></i>
+                </div>
+                <span class="fs-5 tracking-wide">GuardPro</span>
+            </a>
+
+            <div class="d-flex align-items-center gap-3">
+                {% if user %}
+                    <div class="user-pill d-flex align-items-center">
+                        <i class="fa-solid fa-circle-user me-2"></i>
+                        <span>
+                            Xin chào, <strong>{{ user.full_name or user.email }}</strong>
+                            {% if user.role == 'admin' %}
+                                <span class="badge bg-danger ms-1" style="font-size: 0.7em;">ADMIN</span>
+                            {% endif %}
+                        </span>
+                    </div>
+                    <div class="vr mx-1 text-white opacity-25 d-none d-sm-block" style="height: 20px;"></div>
+                    <a href="/logout" class="btn btn-danger btn-sm px-4 py-2 fw-bold rounded-pill shadow-sm d-flex align-items-center transition border-0">
+                        <i class="fa-solid fa-power-off me-1"></i> Đăng xuất
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="d-flex align-items-center mb-4">
+            <div class="bg-danger bg-opacity-10 p-3 rounded-3 me-3 text-danger">
+                <i class="fa-solid fa-user-shield fs-2"></i>
+            </div>
+            <div>
+                <h3 class="mb-0 fw-bold text-dark">Danh sách Nhân sự</h3>
+                <p class="text-muted mb-0 small">Phê duyệt và thăng cấp nhân viên lên Quản trị viên hệ thống.</p>
+            </div>
+        </div>
+        
+        <div class="saas-card overflow-hidden border-0 shadow-sm">
+            <div class="table-responsive">
+                <table class="table user-table align-middle mb-0">
+                    <thead>
+                        <tr>
+                            <th class="ps-4 py-3">Tài khoản (Email)</th>
+                            <th class="py-3">Họ và Tên</th>
+                            <th class="py-3 text-center">Vai trò hiện tại</th>
+                            <th class="py-3 column-center">Hành động quản trị</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for member in users %}
+                        {% if member.email != 'admin@system.local' %}
+                        <tr>
+                            <td class="ps-4">
+                                <div class="d-flex align-items-center">
+                                    <div class="bg-primary bg-opacity-10 rounded-circle p-2 me-3">
+                                        <i class="fa-solid fa-envelope text-primary"></i>
+                                    </div>
+                                    <span>{{ member.email }}</span>
+                                </div>
+                            </td>
+                            <td>
+                                <span class="text-dark">{{ member.full_name }}</span>
+                            </td>
+                            <td class="text-center">
+                                {% if member.role == 'admin' %}
+                                <span class="role-badge role-admin">
+                                    <i class="fa-solid fa-user-shield"></i> Trưởng dự án
+                                </span>
+                                {% else %}
+                                <span class="role-badge role-member">
+                                    <i class="fa-solid fa-user"></i> Nhân viên
+                                </span>
+                                {% endif %}
+                            </td>
+                            <td class="column-center">
+                                <div class="action-wrapper mx-auto">
+                                    {% if member.role == 'member' %}
+                                    <form action="/admin/promote/{{ member.id }}" method="POST" class="m-0">
+                                        <button type="submit" class="btn btn-action btn-promote shadow-sm"
+                                                onclick="return confirm('Xác nhận nâng quyền nhân sự này lên mức Trưởng dự án?')">
+                                            <i class="fa-solid fa-arrow-up-right-from-square me-2"></i> Cấp quyền Trưởng dự án
+                                        </button>
+                                    </form>
+                                    {% else %}
+                                    <form action="/admin/demote/{{ member.id }}" method="POST" class="m-0">
+                                        <button type="submit" class="btn btn-action btn-demote shadow-sm" 
+                                                onclick="return confirm('Xác nhận hạ quyền nhân sự này xuống mức Nhân viên?')">
+                                            <i class="fa-solid fa-user-minus me-2"></i> Gỡ quyền Trưởng dự án
+                                        </button>
+                                    </form>
+                                    {% endif %}
+                                </div>
+                            </td>
+                        </tr>
+                        {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.promote-btn').forEach(btn => {
+            btn.addEventListener('click', async function() {
+                const userId = this.getAttribute('data-id');
+                
+                if(confirm('⚠️ XÁC NHẬN: Bạn có chắc chắn muốn cấp quyền Quản trị viên cho tài khoản này không?')) {
+                    try {
+                        // URL fetch phải khớp với route: /admin/users/{id}/promote
+                        const response = await fetch(`/admin/users/${userId}/promote`, {
+                            method: 'PUT',
+                            headers: { 
+                                'Content-Type': 'application/json',
+                                'X-Requested-With': 'XMLHttpRequest'
+                            }
+                        });
+                        
+                        const result = await response.json();
+                        
+                        if (response.ok) {
+                            alert('✅ Thành công: ' + result.message);
+                            location.reload(); 
+                        } else {
+                            alert('❌ Lỗi: ' + (result.error || 'Không thể thực hiện.'));
+                        }
+                    } catch (error) {
+                        console.error('Lỗi hệ thống:', error);
+                        alert('❌ Đã xảy ra lỗi kết nối với máy chủ.');
+                    }
+                }
+            });
+        });
+        // Script xử lý gỡ quyền Admin
+        document.querySelectorAll('.revoke-btn').forEach(btn => {
+            btn.addEventListener('click', async function() {
+                const userId = this.getAttribute('data-id');
+                
+                if(confirm('⚠️ CẢNH BÁO: Bạn có chắc chắn muốn gỡ quyền Quản trị viên của tài khoản này?\n\nNgười này sẽ không còn quyền quản lý nhân sự và các dự án của người khác.')) {
+                    try {
+                        const response = await fetch(`/admin/users/${userId}/revoke`, {
+                            method: 'PUT',
+                            headers: { 
+                                'Content-Type': 'application/json',
+                                'X-Requested-With': 'XMLHttpRequest'
+                            }
+                        });
+                        
+                        const result = await response.json();
+                        
+                        if (response.ok) {
+                            alert('✅ Đã gỡ quyền: ' + result.message);
+                            location.reload(); 
+                        } else {
+                            alert('❌ Lỗi: ' + (result.error || 'Không thể thực hiện.'));
+                        }
+                    } catch (error) {
+                        console.error('Lỗi hệ thống:', error);
+                        alert('❌ Đã xảy ra lỗi kết nối với máy chủ.');
+                    }
+                }
+            });
+        });
+    </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

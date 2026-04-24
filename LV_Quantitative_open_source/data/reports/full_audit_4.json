@@ -1,0 +1,87 @@
+{
+    "artifact": "CVE-2021-44228-PoC-log4j-bypass-words-main.zip",
+    "hash": "dd77195e2ad5cac9c9800c6c7762762fd991a83ecfc51855078291dda6e1e470",
+    "final_score": 2.48,
+    "weakest_link": {
+        "name": "log4j-api",
+        "version": "2.14.1",
+        "purl": "pkg:maven/org.apache.logging.log4j/log4j-api@2.14.1",
+        "license": "UNKNOWN",
+        "raw_metrics": {
+            "cvss_v3": 0.0,
+            "scorecard": 5.0
+        },
+        "scores": {
+            "CV": 0.0,
+            "CM": 5.0,
+            "CI": 6.0,
+            "CL": 0.0
+        },
+        "r_score": 2.48,
+        "is_blind_spot": true
+    },
+    "project_integrity": {
+        "signed": false,
+        "virustotal_flags": 0,
+        "yara_alerts": 0,
+        "base_ci_score": 6.0,
+        "base_cm_score": 10.0
+    },
+    "total_components": 3,
+    "details": [
+        {
+            "name": "log4j-api",
+            "version": "2.14.1",
+            "purl": "pkg:maven/org.apache.logging.log4j/log4j-api@2.14.1",
+            "license": "UNKNOWN",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 0.0,
+                "CM": 5.0,
+                "CI": 6.0,
+                "CL": 0.0
+            },
+            "r_score": 2.48,
+            "is_blind_spot": true
+        },
+        {
+            "name": "log4j-core",
+            "version": "2.14.1",
+            "purl": "pkg:maven/org.apache.logging.log4j/log4j-core@2.14.1",
+            "license": "UNKNOWN",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 0.0,
+                "CM": 5.0,
+                "CI": 6.0,
+                "CL": 0.0
+            },
+            "r_score": 2.48,
+            "is_blind_spot": true
+        },
+        {
+            "name": "log4j-rce",
+            "version": "1.0-SNAPSHOT",
+            "purl": "pkg:maven/org.example/log4j-rce@1.0-SNAPSHOT",
+            "license": "UNKNOWN",
+            "raw_metrics": {
+                "cvss_v3": 0.0,
+                "scorecard": 5.0
+            },
+            "scores": {
+                "CV": 0.0,
+                "CM": 5.0,
+                "CI": 6.0,
+                "CL": 0.0
+            },
+            "r_score": 2.48,
+            "is_blind_spot": true
+        }
+    ]
+}
